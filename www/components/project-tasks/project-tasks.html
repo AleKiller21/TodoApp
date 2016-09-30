@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-side-menus>
+        <ion-side-menu side="left">
+            <ion-header-bar class="bar-light">
+                <h1 class="title">Projects</h1>
+                <button class="button button-icon ion-plus-round" ng-click="vm.showProjectPopup()"></button>
+            </ion-header-bar>
+
+            <ion-content>
+                <ion-list>
+                    <ion-item ng-repeat="project in Projects track by $index" ng-click="vm.selectProject($index)">
+                        <i class="icon ion-star custom-star" ng-show="project.favorite"></i>
+                        {{project.title}}
+                        <ion-option-button class="button-positive" ng-click="vm.prioritizeProject($index)">Prioritize</ion-option-button>
+                        <ion-option-button class="button-assertive" ng-click="vm.deleteProject($index)">Delete</ion-option-button>
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-side-menu>
+
+        <ion-side-menu-content>
+            <ion-header-bar class="bar-light">
+                <button menu-toggle="left" class="button button-icon ion-navicon-round"></button>
+                <h1 class="title">{{activeProject.title}}</h1>
+                <button class="button button-icon ion-compose" ng-click="vm.showTaskModal()" ng-show="Projects.length"></button>
+            </ion-header-bar>
+
+            <ion-content>
+                <ion-list>
+                    <ion-item ng-repeat="task in activeProject.tasks track by $index">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="task.state" ng-click="vm.saveTasksState()">
+                        </label>
+                        <span class="task-title" ng-class="{'task-completed': task.state}">{{task.title}}</span>
+                        <ion-option-button class="button-assertive" ng-click="vm.deleteTask($index)">Delete</ion-option-button>
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-side-menu-content>
+    </ion-side-menus>
+</ion-view>

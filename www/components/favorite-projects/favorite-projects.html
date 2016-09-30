@@ -1,0 +1,13 @@
+<ion-view>
+    <ion-header-bar class="bar-light">
+        <h1 class="title">Favorite Projects</h1>
+    </ion-header-bar>
+
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="project in FavoriteProjects track by $index" ng-click="vm.selectProject($index)">
+                {{project}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

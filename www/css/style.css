@@ -1,0 +1,17 @@
+/* Empty. Add your own CSS if you like */
+
+.task-title {
+    position: absolute;
+    bottom: 30px;
+    left: 70px;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    color: darkgrey;
+}
+
+.custom-star {
+    font-size: 25px;
+    color: cornflowerblue;
+}

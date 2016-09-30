@@ -1,0 +1,20 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-light">
+        <h1 class="title">New Task</h1>
+        <button class="button button-icon ion-close-round" ng-click="closeTaskModal()"></button>
+    </ion-header-bar>
+
+    <ion-content>
+        <form name="taskForm" ng-submit="taskForm.$valid && createTask()">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="What is your next objective?" ng-model="task.title" required>
+                </label>            
+            </div>
+
+            <div class="padding">
+                <button type="submit" class="button button-block button-balanced">Create Task</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>
